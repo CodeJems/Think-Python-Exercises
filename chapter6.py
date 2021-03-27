@@ -2,9 +2,7 @@
 #6-2
 def ack(m,n):
     if m == 0:
-        return n+1
-    elif m>=n:
-        print('Infinite recursion')    
+        return n+1   
     elif m > 0 and n == 0:
         return ack(m-1,1)
     elif m > 0 and n > 0:
@@ -12,7 +10,7 @@ def ack(m,n):
     else:
         print('Undefined')
 
-# print(ack(4,3))
+print(ack(2,1)) # b must be greater than a for this to function
 
 #6-3 palindrome
 def first(word):
