@@ -12,12 +12,27 @@ def sqroot(a,x):
         x = y
         return sqroot(a,x)
 
+def test_square_root():
+    print('')
+    dash = '-'*42
+    for x in range(10):
+        if x == 0:
+            print(dash, '\n{:^5s}{:^10s}{:^15s}{:^10s}'.format('a','mysqrt(a)','math.sqrt(a)','diff'))
+            print(dash) 
+        else:
+            a=sqroot(x,x/2)
+            b=math.sqrt(x)
+            c=abs(sqroot(x,x/2)-math.sqrt(x))
+            print('{:^5d}{:^10f}{:^15f}{:^10f}'.format(x,a,b,c),)
+    print(dash)
+test_square_root()
+
+'''
+old code - learned how to do columns above
 # # for x in range(25):
 #     sq = x
 #     diff = abs(sqroot(sq,5)-math.sqrt(sq))
 #     print("The square root of {0} is approximately {1:.4f} according to my function, with a diff of {2} from math.sqrt()".format(sq,sqroot(sq,5),diff))
-'''
-# Come back to this to practice column writing and display of data
 '''
 # 7-2
 # repeating eval until user types 'done'
