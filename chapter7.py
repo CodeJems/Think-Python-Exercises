@@ -17,13 +17,13 @@ def test_square_root():
     dash = '-'*42
     for x in range(10):
         if x == 0:
-            print(dash, '\n{:^5s}{:^10s}{:^15s}{:^10s}'.format('a','mysqrt(a)','math.sqrt(a)','diff'))
+            print(dash, '\n{:^5s}{:^12s}{:^15s}{:^10s}'.format('a','mysqrt(a)','math.sqrt(a)','diff'))
             print(dash) 
         else:
             a=sqroot(x,x/2)
             b=math.sqrt(x)
             c=abs(sqroot(x,x/2)-math.sqrt(x))
-            print('{:^5d}{:^10f}{:^15f}{:^10f}'.format(x,a,b,c),)
+            print('{:^5d}{:^10f}{:^17f}{:^10f}'.format(x,a,b,c),)
     print(dash)
 test_square_root()
 
