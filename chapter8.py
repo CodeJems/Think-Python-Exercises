@@ -62,4 +62,23 @@ string_slicing('tacocat')
 #4 returns true if any is lowercase
 #5 returns false if any character is not lower case
 
-# 8-5 rotate word pg 98 (119) 
+# 8-5 rotate word
+import string # used to generate alphabet
+
+def rotate_word(word,num):
+    code = [] # encoded alphabet
+    cryptic =[] # encoded word
+    alphabet = string.ascii_lowercase # generate alphabet
+    num = num%26
+    for x in alphabet: #creates cipher from one to the other
+        value = num + alphabet.find(x)   #returns index within alphabet
+        code.append(alphabet[value%26])
+        if x == 'z':
+            print(code)
+    for x in word:
+        cryptic.append(code[alphabet.find(x)])
+        print(cryptic)
+    return ''.join(cryptic)
+        
+
+print(rotate_word('hello',0))
