@@ -73,11 +73,8 @@ def rotate_word(word,num):
     for x in alphabet: #creates cipher from one to the other
         value = num + alphabet.find(x)   #returns index within alphabet
         code.append(alphabet[value%26])
-        if x == 'z':
-            print(code)
     for x in word:
         cryptic.append(code[alphabet.find(x)])
-        print(cryptic)
     return ''.join(cryptic)
         
 
