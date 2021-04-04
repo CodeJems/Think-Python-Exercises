@@ -68,19 +68,66 @@ def uses_only(words):
         
 # print(uses_only(words))
 
-# 9-5 Write a function named uses_all that takes a word and a string of required letters,
-#and that returns True if the word uses all the required letters at least once. How many
-#words are there that use all the vowels aeiou? How about aeiouy?
+# 9-5 uses all words that you put into it
 
 def uses_all(words):
     uses = input('What letters must your words have? ')
+    test={}
     good_word = []
+    for x in uses:
+        test[x] = False
     for word in words:
+        for x in uses:
+            test[x] = False
         word = word.strip()
-        nouse = True
         for letter in word:
-            if letter not in uses:
-                nouse = False
-        if nouse == True:
+            for x in test.keys():
+                if letter == x:
+                    test[x] = True
+        if all(test.values()):
             good_word.append(word)
     return good_word
+
+# print(uses_all(words))
+
+# 9-6 abecedarian order (alphabetical order) of words
+
+def abecedarian(words):
+    uses = 'abcdefghijklmnopqrstuvwxyz'
+    x = 0
+    temp = ''
+    good_word = []
+    check = False
+    for word in words:
+        if temp != word:
+            x = 0
+            temp = word
+        word = word.strip()
+        for letter in word:
+            # print(letter, x)
+            if letter == uses[x]:
+                x = x+1
+                check = True
+                # print('true')
+            elif x>0:
+                for num in range(x):
+                    if letter == uses[x]:
+                        check = True
+                        # print('true')
+            else:
+                check = False
+                # print('false')
+                break
+        if check == True:
+            good_word.append(word)
+    return good_word
+                
+# print(abecedarian(['abc','aaaaab','acd','cba'])) 
+print(abecedarian(words))            
+            
+
+
+    
+
+
+# print(abecedarian(words))
