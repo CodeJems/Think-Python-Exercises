@@ -97,29 +97,34 @@ def abecedarian(words):
     x = 0
     temp = ''
     good_word = []
+    checkarr = []
     check = False
     for word in words:
         if temp != word:
             x = 0
             temp = word
+            # print(temp, word, x)
         word = word.strip()
         for letter in word:
-            # print(letter, x)
-            if letter == uses[x]:
-                x = x+1
-                check = True
-                # print('true')
-            elif x>0:
-                for num in range(x):
-                    if letter == uses[x]:
-                        check = True
-                        # print('true')
+            # print(uses[x-1], letter, checkarr)
+            if letter not in uses[x:25]:
+                checkarr.append(False)
             else:
+                checkarr.append(True)
+                x = uses.index(letter)
+        for x in checkarr:
+            if x:
+                # print("you're good")
+                check = True
+                continue
+            else:
+                # print("you're bad")
                 check = False
-                # print('false')
                 break
+        # print(check)
         if check == True:
             good_word.append(word)
+        checkarr = []
     return good_word
                 
 # print(abecedarian(['abc','aaaaab','acd','cba'])) 
