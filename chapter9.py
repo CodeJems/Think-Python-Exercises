@@ -1,6 +1,7 @@
 # 9-1 Read words.txt and prints only words with 20 or more characters
 
-words = open('think-python-exercises/words.txt')
+book = open('think-python-exercises/words.txt')
+words = book.readlines()
 # def word_search(words):
 #     good_book = []
 #     for x in words:
@@ -22,7 +23,7 @@ def word_search_no_e(words):
     good_book = []
     totalwords = []
     for x in words:
-        x = x.strip()
+        x.strip()
         totalwords.append(x)
         if has_no_e(x) == True:
             # print(x)
@@ -39,18 +40,47 @@ def word_search_no_e(words):
 def avoid(words):
     forbid = str(input('What letters would you like to forbid?: '))
     logforbid = []
+    totalwords = []
     for word in words:
-        word.strip()
-        # print(word)
-        if word == logforbid:
-            continue
+        word = word.strip()
+        totalwords.append(word)
         for letter in word:
-            # print(letter)
-            if letter in forbid:
+            if letter in forbid and word :
                 logforbid.append(word)
-                continue
-    return len(logforbid)
-# print(word_search_no_e(words))
-print(avoid(words))
+                break
+    return 100*len(logforbid)/len(totalwords)
+# print('{:.2f}% of all words are blocked by those letters'.format(avoid(words))) 
 
+# 9-4 uses_only - returns true if word contains only letters prompted
 
+def uses_only(words):
+    uses = input('What letters must your words have? ')
+    good_word = []
+    for word in words:
+        word = word.strip()
+        nouse = True
+        for letter in word:
+            if letter not in uses:
+                nouse = False
+        if nouse == True:
+            good_word.append(word)
+    return good_word
+        
+# print(uses_only(words))
+
+# 9-5 Write a function named uses_all that takes a word and a string of required letters,
+#and that returns True if the word uses all the required letters at least once. How many
+#words are there that use all the vowels aeiou? How about aeiouy?
+
+def uses_all(words):
+    uses = input('What letters must your words have? ')
+    good_word = []
+    for word in words:
+        word = word.strip()
+        nouse = True
+        for letter in word:
+            if letter not in uses:
+                nouse = False
+        if nouse == True:
+            good_word.append(word)
+    return good_word
