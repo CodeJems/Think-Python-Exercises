@@ -125,8 +125,43 @@ def abecedarian(words):
 # print(abecedarian(['abc','aaaaab','acd','cba'])) 
 # print(abecedarian(words))            
 
+# Part 2 of Chapter 9
+
+# 9-7 print words with 3 consecutive double letters 'aabbcc' counts but not 'aaibbcc'
+
+def puzzler(word):
+    i = 0
+    print(word)
+    while i < len(word)-1:
+        if len(word) < 6:
+            return False
+        elif i+1 < len(word) and word[i+1] == word[i]:
+            # if the next letter matches this letter
+            i = i+2
+            if i+1 < len(word) and word[i+1] == word[i]:
+                i = i+2
+                if i+1 < len(word) and word[i+1] == word[i]:
+                    return True
+                i = i - 2
+            i = i - 2
+        i = i + 1
+    return False
+
+# print(puzzler('aaliis'))
+
+## Searches for words with function
+def word_search(words):
+    good_words = []
+    for word in words:
+        word = word.strip()
+        if puzzler(word): # put function as an if statement
+            good_words.append(word)
+    return good_words
+
+# print(word_search(words))
 
     
+'''
 
 
 # print(abecedarian(words))
