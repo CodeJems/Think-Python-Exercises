@@ -9,7 +9,7 @@ print('word'.center(10,'"'))
 print('word'.count('w'))
 print('wording'.endswith('ing'))
 print(word.find('r', 3,3)) # returns index of where letter was found
-#returns  -1 if there is no char found
+# returns  -1 if there is no char found
 # print(word.index('word')) # returns ValueError when substring not found
 print('123'.isalnum()) # returns true if at least one character and all are alphanumerical
 print(word.isascii()) # Same above but ascii

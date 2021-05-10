@@ -1,3 +1,5 @@
+import math
+
 # 9-1 Read words.txt and prints only words with 20 or more characters
 
 book = open('think-python-exercises/words.txt')
