@@ -162,8 +162,80 @@ def word_search(words):
 
 # print(word_search(words))
 
+def find_digits(num):
+    if num > 0:
+        numdigits = math.floor(math.log10(num))+1
+    elif num == 0:
+        numdigits = 1
     
+    return numdigits
+
+def odo_search():
+    # 6 digits, the last 4, then the last 5, then the last 6 must be palindromic as you increment by 1
+    number = 0
+    while number <= 999997:
+        test = find_digits(number)
+        if test == 6:
+            return number
+        number = number + 1
+
+# b = a[::-1]
+# if b==a:
+#     print('is palindrome')
+
+a = '123456'
+b = a[3::-1] # [(start from nth number):(calling string before the nth number in original value):(-1 is reverse)]
+print(a,' ',b)
+a = '123456'
+b = a[4::-1] # [(start from nth number):(calling string before the nth number in original value):(-1 is reverse)]
+print(a,' ',b)
+a = '123456'
+b = a[5::-1] # [(start from nth number):(calling string before the nth number in original value):(-1 is reverse)]
+print(a,' ',b)
+
+
+# print(len(12))
+# print(odo_search())
+
+
 '''
+# From book post chapter
 
+def book_no_e(word):
+    for letter in word:
+        if letter == 'e':
+            return False
+    return True
 
-# print(abecedarian(words))
+def book_avoids(word, forbid):
+    for letter in word:
+        if letter in forbid:
+            return False
+    return True
+
+def book_uses_only(word, available):
+    for letter in word:
+        if letter not in available:
+            return False
+    return True
+
+# def book_uses_all(word, required):
+#     for letter in required:
+#         if letter not in word:
+#             return False
+#     return True
+
+#Alternative solution using previously solved problem
+def book_uses_all(word,required):
+    return book_uses_only(required,word)
+
+# Loopng with indices
+
+def book_abecedarian(word):
+    i = 0
+    while i < len(word)-1:
+        if word[i+1] < word[i]:
+            return False
+        i = i+1
+    return True
+'''
