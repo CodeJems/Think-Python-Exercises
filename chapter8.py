@@ -78,4 +78,4 @@ def rotate_word(word,num):
     return ''.join(cryptic)
         
 
-print(rotate_word('hello',0))
+print(rotate_word('hello',2))

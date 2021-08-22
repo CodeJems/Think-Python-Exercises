@@ -10,7 +10,7 @@ def ack(m,n):
     else:
         print('Undefined')
 
-print(ack(2,1)) # b must be greater than a for this to function
+print(ack(5,2)) # b must be greater than a for this to function
 
 #6-3 palindrome
 def first(word):
