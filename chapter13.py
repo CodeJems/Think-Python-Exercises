@@ -33,8 +33,23 @@ def reader(files):
         
     return book
 
-print(reader('test.txt'))
+# print(reader('test.txt'))
 
 # 13-2
 # Take the function written above and take a book from gutenberg press
 # and analyze words within it
+
+# print(reader('Youth Asimov.txt'))
+
+def count_words(wordlist):
+    memory = dict()
+    memory['total count'] = 0
+    for word in wordlist:
+        if word not in memory:
+            memory[word] = 1
+        else:
+            memory[word] = memory[word]+1
+        memory['total count'] = memory['total count'] + 1
+    return memory
+
+print(count_words(reader('Youth Asimov.txt')))
