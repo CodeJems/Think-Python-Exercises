@@ -1,3 +1,16 @@
+# Uses ch 11 answers to make a dictionary of all the words cleaned up
+book = open('words.txt')
+words = book.readlines()
+def make_dictionary(words):
+    all_words = {}
+    for word in words:
+        word = word.strip()
+        all_words[word] = 0
+
+    return all_words
+all_words = make_dictionary(words)
+## End of Ch 11 work
+
 # 13-1
 # Write a program that reads a file
 # Breaks each line into words
@@ -78,8 +91,19 @@ def most_frequent(book):
 
     # return words
 
-print(most_frequent('Youth Asimov.txt'))
+# print(most_frequent('Youth Asimov.txt'))
 
 # 13-4 modify previous code to read the full word list and see how 
 # many words are in the book that are not in the total word list
 
+def out_words(list_in, list_compare):
+    # process word list and create dictionary of input book
+    words = count_words(reader(list_in))
+    new_words = dict()
+    # compare each word to the list and return
+    for word, value in words.items():
+        if word not in list_compare:
+            new_words[word] = value
+    return new_words
+
+print(out_words('Youth Asimov.txt',all_words))
