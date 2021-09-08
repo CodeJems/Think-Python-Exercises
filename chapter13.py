@@ -56,13 +56,13 @@ def reader(files):
 
 def count_words(wordlist):
     memory = dict()
-    memory['total count'] = 0
+    # memory['total count'] = 0
     for word in wordlist:
         if word not in memory:
             memory[word] = 1
         else:
             memory[word] = memory[word]+1
-        memory['total count'] = memory['total count'] + 1
+        # memory['total count'] = memory['total count'] + 1
     return memory
 
 # print(count_words(reader('Youth Asimov.txt')))
@@ -106,4 +106,26 @@ def out_words(list_in, list_compare):
             new_words[word] = value
     return new_words
 
-print(out_words('Youth Asimov.txt',all_words))
+# print(out_words('Youth Asimov.txt',all_words))
+
+# 13-5 choose_from_hist chooses a random int from a historgram according to it's probability
+# Use random module
+import random
+
+def choose_from_hist(histogram):
+    probability = []
+    # For each item in the historgram save it's key and value
+    for key, value in histogram.items():
+        # make a temporary value
+        temp_value = value
+        # and count through it that many times
+        while temp_value > 0:
+            # adding that amount to the key
+            probability.append(key)
+            temp_value -= 1
+    # And then choose one of the values from the list
+    choice = random.choice(probability)
+    # and return the choice
+    return choice
+
+print(choose_from_hist(out_words('Youth Asimov.txt',all_words)))
