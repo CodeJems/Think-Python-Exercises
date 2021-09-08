@@ -52,4 +52,34 @@ def count_words(wordlist):
         memory['total count'] = memory['total count'] + 1
     return memory
 
-print(count_words(reader('Youth Asimov.txt')))
+# print(count_words(reader('Youth Asimov.txt')))
+
+# 13-3 Find the 20 most frequent words
+# 
+# Use this in the function to make simpler
+# print(count_words(reader('Youth Asimov.txt')))
+
+def most_frequent(book):
+    words = count_words(reader(book))
+    rev_words = []
+    for key, value in words.items():
+        if key == 'total count':
+            continue
+        else:
+            rev_words.append((value, key))
+    rev_words.sort(reverse=True)    
+        # if value not in rev_words:
+        #     rev_words[value] = key
+        # else:
+        #     print(value, ' ', key)
+            
+        #     # rev_words[value].append(key)
+    return rev_words[0:20]
+
+    # return words
+
+print(most_frequent('Youth Asimov.txt'))
+
+# 13-4 modify previous code to read the full word list and see how 
+# many words are in the book that are not in the total word list
+
