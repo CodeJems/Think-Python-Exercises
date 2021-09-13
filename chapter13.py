@@ -24,12 +24,17 @@ def reader(files):
     # Read file and split into lines
     f = open(files)
     lines = f.readlines()
+
     word_list = []
     book = []
     # Read each line and strip white space, 
     # then create a list of all the words in that line
     for line in lines:
         line = line.strip()
+        if line == "*** START OF THIS PROJECT GUTENBERG EBOOK YOUTH ***":
+            word_list.clear()
+        if line == "*** END OF THIS PROJECT GUTENBERG EBOOK YOUTH ***":
+            break 
         line_list = line.split()
         for word in line_list:
             word_list.append(word)
@@ -128,4 +133,25 @@ def choose_from_hist(histogram):
     # and return the choice
     return choice
 
-print(choose_from_hist(out_words('Youth Asimov.txt',all_words)))
+# print(choose_from_hist(out_words('Youth Asimov.txt',all_words)))
+
+# 13-7 Algorithm
+# Use keys to get a list of the words in the book
+# Create a list that contains each value leading to the cumulative sum n
+# Choose a random number 1 to n, then use a bisection search to find the index of the number you chose
+        # I don't understand this assignment?
+# Use the index to find the corresponding word in the list
+
+
+def list_and_sum(book_words):
+    wordlist = []
+    wordsum = []
+    total_freq = 0
+    for word, freq in book_words.items():
+        wordlist.append(word)
+        total_freq += freq
+        wordsum.append(total_freq)
+    
+    return wordlist
+
+print(list_and_sum(out_words('Youth Asimov.txt',all_words)))
